@@ -30,6 +30,8 @@ def update_by_id(ws, ws_log, ws_person, search_id):
         # 最終更新人物の更新
         ws.cell(row=target_row, column=9).value = update_person
         print(f"在庫を更新しました．新しい在庫は{new_stock}{ws.cell(row=target_row, column=3).value}です．{result_comment}")
+        if new_stock <= ws.cell(row=target_row, colmn=5).value:
+            print("注意！在庫が最低個数アラートを下回りました．")
 
 # 履歴シートに履歴を追加する
 def add_log(ws_log, ws_person, search_id):
